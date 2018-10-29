@@ -1,0 +1,5 @@
+<select [ngModel]="language" (ngModelChange)="onLanguageChanged($event)">
+  <option [ngValue]="'es'">Español</option>
+  <option [ngValue]="'en'">English</option>
+  <option [ngValue]="'ru'">русский</option>
+</select>
