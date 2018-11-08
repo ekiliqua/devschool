@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Output } from '@angular/core';
 
 @Component({
   selector: 'devschool-navbar',
@@ -7,16 +8,18 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  @Output() languageChanged: EventEmitter<string>;
+  @Output() languageChange: EventEmitter<string>;
 
   constructor() {
-    this.languageChanged = new EventEmitter();
-  }
+    this.languageChange = new EventEmitter();
+   }
 
   ngOnInit() {
   }
 
-  languageChange(language: string) {
+  onlanguageChange(language: string) {
     console.log(`He recibido el idioma flipantemente: ${language}`)
+    this.languageChange.emit(language);
   }
+
 }
