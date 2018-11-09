@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from '../models/items';
+import { Item } from '../models';
+
 
 @Component({
   selector: 'devschool-list-items',
