@@ -1,1 +1,16 @@
-<devschool-navbar (languageChange)="language = $event"></devschool-navbar>
+<devschool-navbar
+    [selected]="linkSelected"
+    (selectedChange)="selected = $event"
+    (languageChange)="language = $event">
+</devschool-navbar>
+
+<ng-container *ngIf="selected === 'welcome' || selected === 'list'; else otroElemento">
+    <devschool-welcome *ngIf="selected === 'welcome'" [language]="language"></devschool-welcome>
+    <devschool-list-items *ngIf="selected === 'list'"></devschool-list-items>
+</ng-container>
+
+<ng-template #otroElemento>
+    <p>
+        {{'Hola'}}
+    </p>
+</ng-template>
