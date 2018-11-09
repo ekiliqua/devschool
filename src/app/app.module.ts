@@ -9,6 +9,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ListItemsComponent } from './list-items/list-items.component';
 import { ItemComponent } from './item/item.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { FilterAvailablePipe } from './filter-available.pipe';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     LanguageSelectorComponent,
     WelcomeComponent,
     ListItemsComponent,
-    ItemComponent
+    ItemComponent,
+    FilterAvailablePipe
   ],
   imports: [
     BrowserModule,

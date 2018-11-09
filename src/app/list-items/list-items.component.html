@@ -1,3 +1,17 @@
-<p>
-  list-items works!
-</p>
+<div class="container mt-1">
+  <div class="d-flex justify-content-between align-items-baseline">
+    <h1>Items list</h1>
+    <span>
+      Show only available: <input type="checkbox" [(ngModel)]="filterActive">
+    </span>
+  </div>
+
+  <div class="row">
+    <div class="col-6" *ngFor="let item of items | filterAvailable: filterActive">
+      <div class="list-group-item d-flex justify-content-between" [class.disabled]="!item.available">
+        <span>{{ item.name }}</span>
+        <span>{{ item.price | currency : item.currency }}</span>
+      </div>
+    </div>
+  </div>
+</div>
