@@ -17,6 +17,7 @@ export class NavbarComponent {
   public links: string[];
 
   // inputs
+  @Input() language: string;
 
   // outputs
 

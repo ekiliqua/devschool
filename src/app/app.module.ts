@@ -10,6 +10,7 @@ import { ListItemsComponent } from './list-items/list-items.component';
 import { ItemComponent } from './item/item.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FilterAvailablePipe } from './filter-available.pipe';
+import { TranslatePipe } from './translate.pipe';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FilterAvailablePipe } from './filter-available.pipe';
     WelcomeComponent,
     ListItemsComponent,
     ItemComponent,
-    FilterAvailablePipe
+    FilterAvailablePipe,
+    TranslatePipe
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { Item } from './models';
 
 @Component({
   selector: 'devschool-root',
@@ -8,6 +9,14 @@ import { Component, ViewChild } from '@angular/core';
 export class AppComponent {
 
   title = 'devschool';
-  language: string;
-  selected: string;
+  language: string = 'es';
+  selected: string = 'welcome';
+
+  itemSelected: Item;
+
+  onSelectedItem(item: Item) {
+    this.selected = 'item';
+    this.itemSelected = item;
+  }
+
 }

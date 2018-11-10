@@ -1,3 +1,10 @@
-<p>
-  item works!
-</p>
+<div class="card">
+  <div class="card-header">
+      {{ item.name  | titlecase }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ (item && item.name) + ' flipante' | uppercase }}</h5>
+    <p class="card-text">{{ item.description }}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>

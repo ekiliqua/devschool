@@ -7,6 +7,8 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 })
 export class LanguageSelectorComponent implements OnInit {
 
+  @Input() language: string;
+
   @Output() languageChange: EventEmitter<string>;
 
   constructor() {
@@ -19,6 +21,7 @@ export class LanguageSelectorComponent implements OnInit {
   onLanguageChange(language: string) {
     console.log(`Componente flipante cambiando el idioma a: ${language}`);
     this.languageChange.emit(language);
+    this.language = language;
   }
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Item } from '../models';
 
 
@@ -10,6 +10,10 @@ import { Item } from '../models';
 export class ListItemsComponent implements OnInit {
 
   items: Item[];
+
+  @Input() language: string;
+
+  @Output() selectedItem: EventEmitter<Item> = new EventEmitter();
 
   constructor() {
     this.items = [
@@ -62,7 +66,11 @@ export class ListItemsComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  itemSelected(item: Item): void {
+    this.selectedItem.emit(item);
   }
 
+  ngOnInit() {
+  }
+  
 }

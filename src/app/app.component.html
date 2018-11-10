@@ -1,16 +1,28 @@
 <devschool-navbar
     [selected]="linkSelected"
+    [language]="language"
     (selectedChange)="selected = $event"
     (languageChange)="language = $event">
 </devschool-navbar>
 
-<ng-container *ngIf="selected === 'welcome' || selected === 'list'; else otroElemento">
+<ng-container *ngIf="selected === 'welcome' || selected === 'list' || selected === 'item'; else otroElemento">
     <devschool-welcome *ngIf="selected === 'welcome'" [language]="language"></devschool-welcome>
-    <devschool-list-items *ngIf="selected === 'list'"></devschool-list-items>
+    <devschool-list-items
+        *ngIf="selected === 'list'"
+        [language]="language"
+        (selectedItem)="onSelectedItem($event)"
+    ></devschool-list-items>
+
+
+
+    <devschool-item *ngIf="selected === 'item'" [item]="itemSelected"></devschool-item>
+
+
+
 </ng-container>
 
 <ng-template #otroElemento>
     <p>
-        {{'Hola'}}
+        {{'Page not found!!!'}}
     </p>
 </ng-template>

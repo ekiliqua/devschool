@@ -11,6 +11,8 @@
     </ul>
   </div>
   <span class="ml-auto mr-3">
-    <devschool-language-selector (languageChange)="onlanguageChange($event)"></devschool-language-selector>
+    <devschool-language-selector
+      [language]="language"
+      (languageChange)="onlanguageChange($event)"></devschool-language-selector>
   </span>
 </nav>
