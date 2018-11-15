@@ -11,36 +11,29 @@ export class NavbarComponent {
   // Utils
 
   // variables privadas
-  private _selected: string
 
   // variables publicas
   public links: string[];
 
   // inputs
-  @Input() language: string;
 
   // outputs
 
-  @Output() languageChange: EventEmitter<string> = new EventEmitter();;
+  // @Output() languageChange: EventEmitter<string> = new EventEmitter();;
 
   @Input() selected;
   @Output() selectedChange: EventEmitter<string> = new EventEmitter();;
 
   constructor() {
     this.links = ['welcome', 'list'];
-    this._selected = this.links[0];
    }
 
-   ngOnInit() {
-   }
-
-  public onlanguageChange(language: string): void {
-    console.log(`He recibido el idioma flipantemente: ${language}`)
-    this.languageChange.emit(language);
-  }
+  // public onlanguageChange(language: string): void {
+  //   console.log(`He recibido el idioma flipantemente: ${language}`)
+  //   this.languageChange.emit(language);
+  // }
 
   public select(link: string): void {
-    this._selected = link;
     this.selectedChange.emit(link);
   }
 

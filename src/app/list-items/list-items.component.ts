@@ -7,11 +7,9 @@ import { Item } from '../models';
   templateUrl: './list-items.component.html',
   styleUrls: ['./list-items.component.css']
 })
-export class ListItemsComponent implements OnInit {
+export class ListItemsComponent {
 
   items: Item[];
-
-  @Input() language: string;
 
   @Output() selectedItem: EventEmitter<Item> = new EventEmitter();
 
@@ -68,9 +66,6 @@ export class ListItemsComponent implements OnInit {
 
   itemSelected(item: Item): void {
     this.selectedItem.emit(item);
-  }
-
-  ngOnInit() {
   }
   
 }

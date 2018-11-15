@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Item } from './models';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'devschool-root',
@@ -13,6 +14,11 @@ export class AppComponent {
   selected: string = 'welcome';
 
   itemSelected: Item;
+
+  constructor(private translateService: TranslateService) {
+    this.translateService.addLangs(['es', 'en']);
+    this.translateService.setDefaultLang(this.translateService.getBrowserLang());;
+  }
 
   onSelectedItem(item: Item) {
     this.selected = 'item';

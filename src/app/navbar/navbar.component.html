@@ -6,13 +6,11 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li *ngFor="let link of links" class="nav-item active">
-        <a class="nav-link" href="#" (click)="select(link)">{{link}}</a>
+        <a class="nav-link" href="#" (click)="select(link)">{{ 'LABEL_' + link | uppercase | translate }}</a>
       </li>
     </ul>
   </div>
   <span class="ml-auto mr-3">
-    <devschool-language-selector
-      [language]="language"
-      (languageChange)="onlanguageChange($event)"></devschool-language-selector>
+    <devschool-language-selector></devschool-language-selector>
   </span>
 </nav>

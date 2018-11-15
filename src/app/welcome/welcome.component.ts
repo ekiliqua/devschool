@@ -5,13 +5,5 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent implements OnInit {
-
-  @Input() language: string;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class WelcomeComponent {
 }

@@ -1,28 +1,21 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'devschool-language-selector',
   templateUrl: './language-selector.component.html',
   styleUrls: ['./language-selector.component.css']
 })
-export class LanguageSelectorComponent implements OnInit {
+export class LanguageSelectorComponent {
 
-  @Input() language: string;
+  availableLangs: string[];
 
-  @Output() languageChange: EventEmitter<string>;
-
-  constructor() {
-    this.languageChange = new EventEmitter();
-   }
-
-  ngOnInit() {
+  constructor(private translateService: TranslateService) {
+    this.availableLangs = this.translateService.getLangs();
   }
 
   onLanguageChange(language: string) {
-    console.log(`Componente flipante cambiando el idioma a: ${language}`);
-    this.languageChange.emit(language);
-    this.language = language;
+    this.translateService.use(language);
   }
-
 
 }
