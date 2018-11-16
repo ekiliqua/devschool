@@ -13,6 +13,7 @@ import { ListItemsComponent } from './list-items/list-items.component';
 import { ItemComponent } from './item/item.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FilterAvailablePipe } from './filter-available.pipe';
+import { CartComponent } from './cart/cart/cart.component';
 
 
 
@@ -29,7 +30,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     WelcomeComponent,
     ListItemsComponent,
     ItemComponent,
-    FilterAvailablePipe
+    FilterAvailablePipe,
+    CartComponent
   ],
   imports: [
     BrowserModule,

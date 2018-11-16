@@ -6,7 +6,11 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li *ngFor="let link of links" class="nav-item active">
-        <a class="nav-link" href="#" (click)="select(link)">{{ 'LABEL_' + link | uppercase | translate }}</a>
+        <a class="nav-link" (click)="select(link)">{{ 'LABEL_' + link | uppercase | translate }}
+          <span *ngIf="link === 'cart'" class="badge badge-light">
+            {{ cartLength }}
+          </span>
+        </a>
       </li>
     </ul>
   </div>

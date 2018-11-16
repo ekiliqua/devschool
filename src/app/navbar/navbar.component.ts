@@ -1,5 +1,9 @@
 import { Component, OnInit, EventEmitter, AfterViewChecked, Input } from '@angular/core';
 import { Output } from '@angular/core';
+import { CartService } from '../services/cart.service';
+import { Subscription } from 'rxjs';
+import { CartItem } from '../models';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'devschool-navbar',
@@ -11,27 +15,29 @@ export class NavbarComponent {
   // Utils
 
   // variables privadas
+  private subscription: Subscription;
 
   // variables publicas
   public links: string[];
+  public cartLength: number;
 
   // inputs
 
   // outputs
 
-  // @Output() languageChange: EventEmitter<string> = new EventEmitter();;
 
   @Input() selected;
   @Output() selectedChange: EventEmitter<string> = new EventEmitter();;
 
-  constructor() {
-    this.links = ['welcome', 'list'];
-   }
+  constructor(private cartService: CartService) {
+    this.links = ['welcome', 'list', 'cart'];
 
-  // public onlanguageChange(language: string): void {
-  //   console.log(`He recibido el idioma flipantemente: ${language}`)
-  //   this.languageChange.emit(language);
-  // }
+    this.subscription = this.cartService.getItems().pipe(
+      map((items: CartItem[]) => {
+        return items.map(i => i.quantity).reduce((acc, quantity) => acc + quantity, 0);
+      }
+      )).subscribe(totals => this.cartLength = totals);
+   }
 
   public select(link: string): void {
     this.selectedChange.emit(link);
