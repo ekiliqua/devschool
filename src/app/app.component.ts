@@ -16,8 +16,13 @@ export class AppComponent {
   itemSelected: Item;
 
   constructor(private translateService: TranslateService) {
-    this.translateService.addLangs(['es', 'en']);
-    this.translateService.setDefaultLang(this.translateService.getBrowserLang());;
+    const langs = ['es', 'en'];
+    this.translateService.addLangs(langs);
+    if (['es', 'en'].includes(this.translateService.getBrowserLang())) {
+      this.translateService.setDefaultLang(this.translateService.getBrowserLang());      
+    } else {
+      this.translateService.setDefaultLang('en');
+    }
   }
 
   onSelectedItem(item: Item) {
