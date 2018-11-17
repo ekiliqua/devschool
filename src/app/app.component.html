@@ -3,22 +3,4 @@
     (selectedChange)="selected = $event">
 </devschool-navbar>
 
-<ng-container *ngIf="selected === 'welcome' || selected === 'list' || selected === 'item' || selected === 'cart'; else otroElemento">
-    <devschool-welcome *ngIf="selected === 'welcome'"></devschool-welcome>
-    
-    <devschool-list-items *ngIf="selected === 'list'"
-        (selectedItem)="onSelectedItem($event)">
-    </devschool-list-items>
-    
-    <devschool-item *ngIf="selected === 'item'"
-        [item]="itemSelected">
-    </devschool-item>
-
-    <devschool-cart *ngIf="selected === 'cart'"></devschool-cart>
-</ng-container>
-
-<ng-template #otroElemento>
-    <p>
-        {{'Page not found!!!'}}
-    </p>
-</ng-template>
+<router-outlet></router-outlet>

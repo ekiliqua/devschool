@@ -14,6 +14,9 @@ import { ItemComponent } from './item/item.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FilterAvailablePipe } from './filter-available.pipe';
 import { CartComponent } from './cart/cart/cart.component';
+import { AppRoutingModule } from './app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -31,7 +34,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ListItemsComponent,
     ItemComponent,
     FilterAvailablePipe,
-    CartComponent
+    CartComponent,
+    PageNotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

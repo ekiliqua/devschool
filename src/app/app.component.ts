@@ -9,25 +9,26 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
 
-  title = 'devschool';
-  language: string = 'es';
   selected: string = 'welcome';
 
-  itemSelected: Item;
-
   constructor(private translateService: TranslateService) {
-    const langs = ['es', 'en'];
+    const langs = this.getAvailableLangs();
     this.translateService.addLangs(langs);
+    this.setDefaultLang();
+  }
+
+  
+
+  private getAvailableLangs(): string[] {
+    return ['es', 'en'];
+  }
+
+  private setDefaultLang() {
     if (['es', 'en'].includes(this.translateService.getBrowserLang())) {
       this.translateService.setDefaultLang(this.translateService.getBrowserLang());      
     } else {
       this.translateService.setDefaultLang('en');
     }
-  }
-
-  onSelectedItem(item: Item) {
-    this.selected = 'item';
-    this.itemSelected = item;
   }
 
 }

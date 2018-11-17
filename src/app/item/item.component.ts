@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Item } from '../models';
 import { CartService } from '../services/cart.service';
+import { ItemsService } from '../services/items.service';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'devschool-item',
@@ -9,11 +12,12 @@ import { CartService } from '../services/cart.service';
 })
 export class ItemComponent {
 
-  @Input() item: Item;
+  item: Item;
 
-  added = false;
-
-  constructor(private cartService: CartService) {
+  constructor(
+    private cartService: CartService,
+    private _activatedRoute: ActivatedRoute) {
+      this.item = this._activatedRoute.snapshot.data.item;
   }
 
   addToCart() {

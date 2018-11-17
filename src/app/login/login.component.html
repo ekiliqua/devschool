@@ -1,0 +1,27 @@
+<div class="input-group input-group-lg">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-lg">User</span>
+  </div>
+  <input
+    type="text"
+    class="form-control"
+    aria-label="Sizing example input"
+    aria-describedby="inputGroup-sizing-lg"
+    [(ngModel)]="user">
+</div>
+
+<div class="input-group input-group-lg">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
+  </div>
+
+  <input
+    type="text"
+    class="form-control"
+    aria-label="Sizing example input"
+    aria-describedby="inputGroup-sizing-lg"
+    [(ngModel)]="password">
+</div>
+
+
+<button class="btn btn-primary" (click)="onLogin()">Login</button>

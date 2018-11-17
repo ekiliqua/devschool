@@ -18,9 +18,5 @@ export class ListItemsComponent {
   constructor(private itemsService: ItemsService) {
     this.items$ = this.itemsService.getItems();
   }
-
-  itemSelected(item: Item): void {
-    this.selectedItem.emit(item);
-  }
   
 }

@@ -7,7 +7,7 @@
   </div>
 
   <div class="row">
-    <div class="col-6" *ngFor="let item of items$ | async | filterAvailable: filterActive" (click)="itemSelected(item)">
+    <div class="col-6" *ngFor="let item of items$ | async | filterAvailable: filterActive" [routerLink]="['/item', item.id]">
       <div class="list-group-item d-flex justify-content-between" [class.disabled]="!item.available">
         <span>{{ item.name }}</span>
         <span>{{ item.price | currency : item.currency }}</span>
