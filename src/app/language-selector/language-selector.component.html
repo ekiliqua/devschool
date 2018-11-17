@@ -5,7 +5,7 @@
   </button>
   <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
     <li role="menuitem" *ngFor="let lang of availableLangs" (click)="onLanguageChange(lang)">
-      <a class="dropdown-item" href="#">{{ 'LANGUAGE_LABEL_' + lang | uppercase | translate }}</a>
+      <a class="dropdown-item">{{ 'LANGUAGE_LABEL_' + lang | uppercase | translate }}</a>
     </li>
   </ul>
 </div>
