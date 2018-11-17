@@ -1,0 +1,17 @@
+
+Crear componente con:
+	Si estamos logueados saldrá un dropdown a la derecha, al lado del language selector, con
+    dos opciones:
+	
+		- Profile
+		
+		- Logout. Al hacer click en logout se cerrará la sesion y si intentamos acceder
+			a otra pagina que requiera login nos redirigira a la pantalla login.
+
+	Si no estamos logueados aparecera un boton de login.
+
+		- Al hacer "click" en el boton de login iremos al a pantalla de login.
+		
+    Hacer un pipe para aplicarlo en la lista items que filtre los que cuesten igual o mas de 20.
+
+        - Poner 20 directamente en el pipe o a traves de un input type number.
