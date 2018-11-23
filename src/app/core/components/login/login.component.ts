@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../services/login.service';
 import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'devschool-login',
