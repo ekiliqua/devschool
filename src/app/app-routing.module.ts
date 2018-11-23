@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WelcomeComponent } from './welcome/welcome.component';
 import { ListItemsComponent } from './list-items/list-items.component';
 import { ItemComponent } from './item/item.component';
-import { AuthGuard } from './services/auth.service';
-import { ItemResolver } from './services/item-resolver.service';
 import { LoginComponent } from './core/components/login/login.component';
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
+import { WelcomeComponent } from './core/components/welcome/welcome.component';
+import { AuthGuard } from './core/services/auth.service';
+import { ItemResolver } from './core/services/item-resolver.service';
 
 const routes: Routes = [
   {
@@ -21,7 +21,6 @@ const routes: Routes = [
   {
     path: 'cart',
     loadChildren: './cart/cart.module#CartModule',
-  
     canActivate: [AuthGuard]
   },
   {

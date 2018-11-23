@@ -14,9 +14,7 @@ export class AppComponent {
     const langs = this.getAvailableLangs();
     this.translateService.addLangs(langs);
     this.setDefaultLang();
-  }
-
-  
+  }  
 
   private getAvailableLangs(): string[] {
     return ['es', 'en'];

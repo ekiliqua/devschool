@@ -1,0 +1,11 @@
+
+<div class="btn-group" dropdown>
+  <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle" aria-controls="dropdown-basic">
+    ⚛ <span class="caret"></span>
+  </button>
+  <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="button-basic">
+    <li role="menuitem" *ngFor="let menuEntry of menuEntries">
+      <a class="dropdown-item" (click)="menuEntry?.action(menuEntry?.path)">{{ menuEntry?.id | uppercase | translate }}</a>
+    </li>
+  </ul>
+</div>

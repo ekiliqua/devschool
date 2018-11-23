@@ -2,8 +2,8 @@ import { Component, OnInit, EventEmitter, AfterViewChecked, Input } from '@angul
 import { Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CartService } from 'src/app/services/cart.service';
 import { CartItem } from '../../models';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'devschool-navbar',

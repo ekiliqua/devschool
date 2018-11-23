@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { MainMenuComponent } from './components/main-menu/main-menu.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -35,6 +37,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     NavbarComponent,
     LoginComponent,
     PageNotFoundComponent,
+    MainMenuComponent,
+    WelcomeComponent
   ],
   exports: [
     TranslateModule,

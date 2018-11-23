@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CartService } from '../services/cart.service';
-import { ItemsService } from '../services/items.service';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Item } from '../core/models';
+import { CartService } from '../core/services/cart.service';
 
 @Component({
   selector: 'devschool-item',
