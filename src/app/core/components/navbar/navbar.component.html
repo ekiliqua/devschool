@@ -5,9 +5,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li *ngFor="let link of links" class="nav-item active">
-        <a class="nav-link" routerLink="{{'/' + link}}">{{ 'LABEL_' + link | uppercase | translate }}
-          <span *ngIf="link === 'cart'" class="badge badge-light">
+      <li *ngFor="let availablePath of availablePaths" class="nav-item active">
+        <a class="nav-link" routerLink="{{'/' + availablePath?.path}}">
+          {{ 'LABEL_' + availablePath?.id | uppercase | translate }}
+          <span *ngIf="availablePath?.id === 'cart'" class="badge badge-light">
             {{ cartLength }}
           </span>
         </a>

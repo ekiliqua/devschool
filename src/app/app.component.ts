@@ -8,8 +8,6 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
 
-  selected: string = 'welcome';
-
   constructor(private translateService: TranslateService) {
     const langs = this.getAvailableLangs();
     this.translateService.addLangs(langs);
