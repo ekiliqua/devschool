@@ -1,5 +1,4 @@
-import { Component, OnInit, EventEmitter, AfterViewChecked, Input } from '@angular/core';
-import { Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CartItem } from '../../models';
@@ -25,10 +24,6 @@ export class NavbarComponent {
 
   // outputs
 
-
-  @Input() selected;
-  @Output() selectedChange: EventEmitter<string> = new EventEmitter();;
-
   constructor(private cartService: CartService) {
     this.links = ['welcome', 'items/list', 'cart/show'];
 
@@ -38,9 +33,5 @@ export class NavbarComponent {
       }
       )).subscribe(totals => this.cartLength = totals);
    }
-
-  public select(link: string): void {
-    this.selectedChange.emit(link);
-  }
 
 }
