@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Item } from '../core/models';
-import { ItemsService } from '../core/services/items.service';
+import { Item } from 'src/app/core/models';
+import { ItemsService } from 'src/app/core/services/items.service';
 
 
 @Component({

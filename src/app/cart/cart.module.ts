@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartRoutingModule } from './cart-routing.module';
-import { CartComponent } from '../item/components/cart.component';
 import { CoreModule } from '../core/core.module';
+import { CartComponent } from '../protected/items/componets/item/components/cart.component';
 
 @NgModule({
   imports: [

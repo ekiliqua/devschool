@@ -30,7 +30,7 @@ export class NavbarComponent {
   @Output() selectedChange: EventEmitter<string> = new EventEmitter();;
 
   constructor(private cartService: CartService) {
-    this.links = ['welcome', 'list', 'cart'];
+    this.links = ['welcome', 'items/list', 'cart'];
 
     this.subscription = this.cartService.getItems().pipe(
       map((items: CartItem[]) => {
