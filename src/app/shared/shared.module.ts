@@ -4,7 +4,7 @@ import { FilterAvailablePipe } from './pipes/filter-available.pipe';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [
     FilterAvailablePipe

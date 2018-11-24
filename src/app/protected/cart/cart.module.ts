@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartRoutingModule } from './cart-routing.module';
-import { CoreModule } from '../core/core.module';
-import { CartComponent } from '../protected/items/componets/item/components/cart.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CoreModule } from 'src/app/core/core.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     CartRoutingModule,
-    CoreModule
+    CoreModule,
+    SharedModule
   ],
   declarations: [CartComponent]
 })

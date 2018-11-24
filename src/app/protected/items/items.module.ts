@@ -6,13 +6,15 @@ import { ListItemsComponent } from './componets/list-items/list-items.component'
 import { CoreModule } from 'src/app/core/core.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ItemComponent } from './componets/item/item.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     ItemsRoutingModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ],
   declarations: [
     ListItemsComponent,

@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './items/items.module#ItemsModule'
+  },
+  {
+    path: 'show',
+    loadChildren: './cart/cart.module#CartModule'
   }
 ];
 
