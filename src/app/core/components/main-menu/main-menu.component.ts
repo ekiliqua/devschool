@@ -13,7 +13,7 @@ interface MenuEntry {
   templateUrl: './main-menu.component.html',
   styleUrls: ['./main-menu.component.css']
 })
-export class MainMenuComponent implements OnInit {
+export class MainMenuComponent {
 
   menuEntries: MenuEntry[] = [];
 
@@ -21,9 +21,6 @@ export class MainMenuComponent implements OnInit {
     this.loginService.isLogged$().subscribe(isLogged =>
       this.menuEntries = isLogged ? this.getLoggedOptions() : this.getUnloggedOptions()
     );
-  }
-
-  ngOnInit() {
   }
 
   private getUnloggedOptions(): MenuEntry[] {

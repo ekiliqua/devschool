@@ -8,7 +8,7 @@ import { LoginService } from '../../services/login.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   user: string;
   password: string;
@@ -16,9 +16,6 @@ export class LoginComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private router: Router) {
-  }
-
-  ngOnInit() {
   }
 
   onLogin(): void {
