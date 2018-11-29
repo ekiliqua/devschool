@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Item } from 'src/app/core/models';
 import { ItemsService } from 'src/app/core/services/items.service';
+import { Item } from 'src/app/core/models';
 
 @Component({
   selector: 'devschool-list-items',
@@ -15,7 +15,7 @@ export class ListItemsComponent {
   @Output() selectedItem: EventEmitter<Item> = new EventEmitter();
 
   constructor(private itemsService: ItemsService) {
-    this.items$ = this.itemsService.getItems();
+    this.items$ = this.itemsService.getAll();
   }
   
 }
