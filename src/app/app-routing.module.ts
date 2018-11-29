@@ -25,12 +25,7 @@ const routes: Routes = [
     component: WelcomeComponent
   },
   {
-    path: 'items',
-    loadChildren: './protected/protected.module#ProtectedModule',
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'cart',
+    path: 'p',
     loadChildren: './protected/protected.module#ProtectedModule',
     canActivate: [AuthGuard]
   },

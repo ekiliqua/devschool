@@ -44,8 +44,8 @@ export class NavbarComponent {
   private getAvailablePaths(): AvailablePath[] {
     return [
       { id: 'welcome', path: 'welcome' },
-      { id: 'items_list', path: 'items/list' },
-      { id: 'cart', path: 'cart/show' }
+      { id: 'items_list', path: '/p/items' },
+      { id: 'cart', path: '/p/cart' }
     ];
   }
 

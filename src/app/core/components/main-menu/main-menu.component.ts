@@ -28,7 +28,7 @@ export class MainMenuComponent {
       id: 'login',
       path: '/login',
       action: (path?: string) => this.router.navigate([path])
-    },{
+    }, {
       id: 'reactive-login',
       path: '/reactive-login',
       action: (path?: string) => this.router.navigate([path])
@@ -38,7 +38,7 @@ export class MainMenuComponent {
   private getLoggedOptions(): MenuEntry[] {
     return [{
       id: 'profile',
-      path: '/profile',
+      path: '/p/dashboard/profile',
       action: (path?: string) => this.router.navigate([path])
     },
     {

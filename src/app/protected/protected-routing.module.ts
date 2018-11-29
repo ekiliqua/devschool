@@ -3,12 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'list',
+    path: 'items',
     loadChildren: './items/items.module#ItemsModule'
   },
   {
-    path: 'show',
+    path: 'cart',
     loadChildren: './cart/cart.module#CartModule'
+  },
+  {
+    path: 'dashboard',
+    loadChildren: './user-dashboard/user-dashboard.module#UserDashboardModule'
   }
 ];
 

@@ -7,6 +7,7 @@ import { ItemResolver } from 'src/app/core/services/item-resolver.service';
 const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
     component: ListItemsComponent
   },
   {
