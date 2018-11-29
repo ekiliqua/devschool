@@ -28,6 +28,10 @@ export class MainMenuComponent {
       id: 'login',
       path: '/login',
       action: (path?: string) => this.router.navigate([path])
+    },{
+      id: 'reactive-login',
+      path: '/reactive-login',
+      action: (path?: string) => this.router.navigate([path])
     }];
   }
 

@@ -1,12 +1,12 @@
 <div class="container">
   
   <form #f="ngForm" (ngSubmit)="onLogin()">
-        
+    <h1>{{ LOGIN | translate }}</h1>
     <div class="form-group">
       <label for="user">User</label>
       <input type="text" class="form-control"
         name="user"
-        [(ngModel)]="userForm.user"
+        [(ngModel)]="loginForm.user"
         required
         #user="ngModel">
 
@@ -19,7 +19,7 @@
       <label for="password">Password</label>
       <input type="password" class="form-control"
         name="password"
-        [(ngModel)]="userForm.password"
+        [(ngModel)]="loginForm.password"
         required
         #password="ngModel">
         
@@ -36,4 +36,4 @@
     TODO: remove this: {{password.className}}
   </form>
   
-</div>  
+</div>

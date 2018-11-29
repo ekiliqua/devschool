@@ -4,11 +4,16 @@ import { LoginComponent } from './core/components/login/login.component';
 import { AuthGuard } from './core/services/auth.service';
 import { WelcomeComponent } from './core/components/welcome/welcome.component';
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
+import { ReactiveLoginComponent } from './core/components/reactive-login/reactive-login.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'reactive-login',
+    component: ReactiveLoginComponent
   },
   {
     path: '',

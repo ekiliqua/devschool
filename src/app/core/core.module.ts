@@ -6,12 +6,13 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
 import { RouterModule } from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { ReactiveLoginComponent } from './components/reactive-login/reactive-login.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -23,6 +24,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     HttpClientModule,
     TranslateModule.forRoot({
@@ -39,7 +41,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     MainMenuComponent,
     PageNotFoundComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ReactiveLoginComponent
   ],
   exports: [
     TranslateModule,

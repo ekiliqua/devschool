@@ -11,13 +11,9 @@ import { LoginForm } from '../../models';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  userForm: LoginForm = {} as LoginForm;
+  loginForm: LoginForm = {} as LoginForm;
 
   console = console;
-
-  onSubmitTemplateBased() {
-      console.log(this.userForm);
-  }
 
   constructor(
     private loginService: LoginService,
@@ -25,7 +21,7 @@ export class LoginComponent {
   }
 
   onLogin(): void {
-    this.loginService.login(this.userForm).pipe(take(1))
+    this.loginService.login(this.loginForm).pipe(take(1))
       .subscribe((response: boolean) => {
         if (response) {
           this.router.navigate(['/welcome']);

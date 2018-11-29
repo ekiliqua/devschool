@@ -11,5 +11,9 @@
     "ADD": "Añadir",
     "REMOVE": "Elimnar",
     "NAME": "Nombre",
-    "DESCRIPTION": "Descripción"
+    "DESCRIPTION": "Descripción",
+    "LOGIN": "Template Form: Iniciar sesión",
+    "REACTIVE-LOGIN": "Reactive Form: Iniciar sesión",
+    "PROFILE": "Perfil",
+    "LOGOUT": "Cerrar sesión"
 }

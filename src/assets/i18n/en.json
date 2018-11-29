@@ -11,5 +11,9 @@
     "ADD": "Add",
     "REMOVE": "Remove",
     "NAME": "Name",
-    "DESCRIPTION": "Description"
+    "DESCRIPTION": "Description",
+    "LOGIN": "Template Form: Login",
+    "REACTIVE-LOGIN": "Reactive Form: Login",
+    "PROFILE": "Profile",
+    "LOGOUT": "Logout"
 }
