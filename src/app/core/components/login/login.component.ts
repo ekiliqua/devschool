@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
+import { LoginForm } from '../../models';
+
 
 @Component({
   selector: 'devschool-login',
@@ -9,9 +11,13 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  userForm: LoginForm = {} as LoginForm;
 
-  user: string;
-  password: string;
+  console = console;
+
+  onSubmitTemplateBased() {
+      console.log(this.userForm);
+  }
 
   constructor(
     private loginService: LoginService,
@@ -19,7 +25,7 @@ export class LoginComponent {
   }
 
   onLogin(): void {
-    this.loginService.login(this.password).pipe(take(1))
+    this.loginService.login(this.userForm).pipe(take(1))
       .subscribe((response: boolean) => {
         if (response) {
           this.router.navigate(['/welcome']);

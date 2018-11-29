@@ -1,27 +1,39 @@
-<div class="input-group input-group-lg">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg">User</span>
-  </div>
-  <input
-    type="text"
-    class="form-control"
-    aria-label="Sizing example input"
-    aria-describedby="inputGroup-sizing-lg"
-    [(ngModel)]="user">
-</div>
+<div class="container">
+  
+  <form #f="ngForm" (ngSubmit)="onLogin()">
+        
+    <div class="form-group">
+      <label for="user">User</label>
+      <input type="text" class="form-control"
+        name="user"
+        [(ngModel)]="userForm.user"
+        required
+        #user="ngModel">
 
-<div class="input-group input-group-lg">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
-  </div>
-
-  <input
-    type="text"
-    class="form-control"
-    aria-label="Sizing example input"
-    aria-describedby="inputGroup-sizing-lg"
-    [(ngModel)]="password">
-</div>
-
-
-<button class="btn btn-primary" (click)="onLogin()">Login</button>
+      <div *ngIf="user.invalid && user.touched" class="alert alert-danger">
+        User is required
+      </div>
+    </div>
+        
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control"
+        name="password"
+        [(ngModel)]="userForm.password"
+        required
+        #password="ngModel">
+        
+      <div *ngIf="password.invalid && password.touched" class="alert alert-danger">
+        Password is required
+      </div>
+    </div>
+        
+    <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Login</button>
+  
+    <br>
+    TODO: remove this: {{user.className}}
+    <br>
+    TODO: remove this: {{password.className}}
+  </form>
+  
+</div>  
