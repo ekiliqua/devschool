@@ -12,7 +12,7 @@ export class LoginService {
   private _isLogged$: BehaviorSubject<boolean>;
 
   constructor(private router: Router) {
-    this.isLogged = false
+    this.isLogged = false;
     this._isLogged$ = new BehaviorSubject(this.isLogged);
   }
 

@@ -17,5 +17,5 @@ export class ListItemsComponent {
   constructor(private itemsService: ItemsService) {
     this.items$ = this.itemsService.getAll();
   }
-  
+
 }

@@ -12,7 +12,7 @@ export class AppComponent {
     const langs = this.getAvailableLangs();
     this.translateService.addLangs(langs);
     this.setDefaultLang();
-  }  
+  }
 
   private getAvailableLangs(): string[] {
     return ['es', 'en'];
@@ -20,7 +20,7 @@ export class AppComponent {
 
   private setDefaultLang() {
     if (['es', 'en'].includes(this.translateService.getBrowserLang())) {
-      this.translateService.setDefaultLang(this.translateService.getBrowserLang());      
+      this.translateService.setDefaultLang(this.translateService.getBrowserLang());
     } else {
       this.translateService.setDefaultLang('en');
     }

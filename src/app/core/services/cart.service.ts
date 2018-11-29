@@ -20,9 +20,9 @@ export class CartService {
   }
 
   addItem(item: Item, quantity: number = 1): void {
-    const cartItem: CartItem = {...item, quantity};
+    const cartItem: CartItem = { ...item, quantity };
     if (this.cartItems.reduce((acc, curr) => [...acc, curr.id], []).includes(item.id)) {
-      this.cartItems.find(cartItem => cartItem.id === item.id).quantity++;
+      this.cartItems.find(cI => cI.id === cI.id).quantity++;
     } else {
       this.cartItems.push(cartItem);
     }
@@ -34,7 +34,7 @@ export class CartService {
     const foundItem = this.cartItems.find(cartItem => cartItem.id === id);
     if (!!foundItem) {
       if (foundItem.quantity > 1) {
-        foundItem.quantity--
+        foundItem.quantity--;
       } else {
         this.cartItems = this.cartItems.filter(cartItem => cartItem.id !== id);
       }

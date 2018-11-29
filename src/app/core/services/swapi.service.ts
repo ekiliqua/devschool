@@ -2,24 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 class Person {
-    name: string;
-    height: string;
-    mass: string;
-    hair_color: string;
-    skin_color: string;
-    eye_color: string;
-    birth_year: string;
-    gender: string;
-    homeworld: string;
-    films: string[];
-    species: string[];
-    vehicles: string[];
-    starships: string[];
-    created: string;
-    edited: string;
-    url: string;
+  name: string;
+  height: string;
+  mass: string;
+  hair_color: string;
+  skin_color: string;
+  eye_color: string;
+  birth_year: string;
+  gender: string;
+  homeworld: string;
+  films: string[];
+  species: string[];
+  vehicles: string[];
+  starships: string[];
+  created: string;
+  edited: string;
+  url: string;
 }
 
 class AbstractPagination<T> {
@@ -59,11 +58,11 @@ export class SwapiService {
   constructor(private http: HttpClient) {
   }
 
-  getSWPeople<People>(): Observable<People> {
+  getSWPeople(): Observable<People> {
     return this.http.get<People>('https://swapi.co/api/people/');
   }
 
-  getSWFilms<Films>(): Observable<Films> {
-    return this.http.get<Films>('https://swapi.co/api/films/', );
+  getSWFilms(): Observable<Films> {
+    return this.http.get<Films>('https://swapi.co/api/films/');
   }
 }
