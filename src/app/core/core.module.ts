@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
 import { RouterModule } from '@angular/router';
@@ -13,6 +13,8 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ReactiveLoginComponent } from './components/reactive-login/reactive-login.component';
+import { TokenInterceptor } from './interceptors/token-interceptor';
+import { ErrorInterceptor } from './interceptors/error-interceptor';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -43,6 +45,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     PageNotFoundComponent,
     WelcomeComponent,
     ReactiveLoginComponent
+  ],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
   exports: [
     TranslateModule,

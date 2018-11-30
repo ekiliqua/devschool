@@ -6,10 +6,11 @@ import { Item } from 'src/app/core/models';
 @Component({
   selector: 'devschool-list-items',
   templateUrl: './list-items.component.html',
-  styleUrls: ['./list-items.component.css']
+  styleUrls: ['./list-items.component.css'],
 })
 export class ListItemsComponent {
 
+  filterActive: boolean;
   items$: Observable<Item[]>;
 
   @Output() selectedItem: EventEmitter<Item> = new EventEmitter();
