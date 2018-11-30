@@ -42,13 +42,15 @@ export class ProfileComponent implements OnDestroy {
 
       setTimeout(() => {
         
-        this.reactiveProfileForm.setValue({
-          lastNames: 'Aguado Arnold'
-        });
-
-        // this.reactiveProfileForm.patchValue({
+        // Error
+        // this.reactiveProfileForm.setValue({
         //   lastNames: 'Aguado Arnold'
         // });
+
+        // Set only one property.
+        this.reactiveProfileForm.patchValue({
+          lastNames: 'Aguado Arnold'
+        });
 
       }, 10000);
     }, 10000);
