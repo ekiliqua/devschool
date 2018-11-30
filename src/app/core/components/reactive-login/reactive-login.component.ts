@@ -12,7 +12,7 @@ import { take } from 'rxjs/operators';
 export class ReactiveLoginComponent {
 
   reactiveLoginForm = new FormGroup({
-    user: new FormControl('', Validators.required),
+    user: new FormControl('', [Validators.required, Validators.minLength(3)]),
     password: new FormControl('', Validators.required)
   });
 

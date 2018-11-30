@@ -5,8 +5,8 @@
     <div class="form-group">
       <label for="user">User</label>
       <input type="text" class="form-control"
-        name="user"
         [(ngModel)]="loginForm.user"
+        [ngModelOptions]="{ standalone: true }"
         required
         #user="ngModel">
 
@@ -18,11 +18,13 @@
     <div class="form-group">
       <label for="password">Password</label>
       <input type="password" class="form-control"
-        name="password"
         [(ngModel)]="loginForm.password"
+        name="password"
         required
         #password="ngModel">
         
+        {{console.log(password)}}
+
       <div *ngIf="password.invalid && password.touched" class="alert alert-danger">
         Password is required
       </div>
