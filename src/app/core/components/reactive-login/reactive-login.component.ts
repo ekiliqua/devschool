@@ -22,7 +22,8 @@ export class ReactiveLoginComponent {
   }
 
   onSubmit() {
-    this.loginService.login(this.reactiveLoginForm.value).pipe(take(1))
+    this.loginService.login(this.reactiveLoginForm.value)
+      .pipe(take(1))
       .subscribe((response: boolean) => {
         if (response) {
           this.router.navigate(['/welcome']);

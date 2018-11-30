@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
+import { UnSubscriptionHandler } from '../../utilities/unsubscription.handler';
+import { takeUntil } from 'rxjs/operators';
 
 interface MenuEntry {
   id: string;
@@ -13,14 +15,17 @@ interface MenuEntry {
   templateUrl: './main-menu.component.html',
   styleUrls: ['./main-menu.component.css']
 })
-export class MainMenuComponent {
+export class MainMenuComponent extends UnSubscriptionHandler {
 
   menuEntries: MenuEntry[] = [];
 
   constructor(private loginService: LoginService, private router: Router) {
-    this.loginService.isLogged$().subscribe(isLogged =>
-      this.menuEntries = isLogged ? this.getLoggedOptions() : this.getUnloggedOptions()
-    );
+    super();
+    this.loginService.isLogged$()
+      .pipe(takeUntil(this.componentDestroyed))
+      .subscribe(isLogged =>
+        this.menuEntries = isLogged ? this.getLoggedOptions() : this.getUnloggedOptions()
+      );
   }
 
   private getUnloggedOptions(): MenuEntry[] {

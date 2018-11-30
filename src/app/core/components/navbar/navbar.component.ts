@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, takeUntil } from 'rxjs/operators';
 import { CartItem } from '../../models';
 import { CartService } from '../../services/cart.service';
+import { UnSubscriptionHandler } from '../../utilities/unsubscription.handler';
 
 interface AvailablePath {
   id: string;
@@ -14,12 +15,11 @@ interface AvailablePath {
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent extends UnSubscriptionHandler {
 
   // Utils
 
   // variables privadas
-  private subscription: Subscription;
 
   // variables publicas
   public availablePaths: AvailablePath[];
@@ -30,10 +30,12 @@ export class NavbarComponent {
   // outputs
 
   constructor(private cartService: CartService) {
+    super();
     this.availablePaths = this.getAvailablePaths();
 
-    this.subscription = this.cartService.getItems()
+    this.cartService.getItems()
       .pipe(
+        takeUntil(this.componentDestroyed),
         map((items: CartItem[]) =>
           items.map(i => i.quantity).reduce((acc, quantity) => acc + quantity, 0)
         )

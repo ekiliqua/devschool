@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
 import { ProfileService } from '../services/profile.service';
 import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, takeUntil } from 'rxjs/operators';
+import { UnSubscriptionHandler } from 'src/app/core/utilities/unsubscription.handler';
 
 @Component({
   selector: 'devschool-profile',
@@ -10,25 +11,30 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./profile.component.css'],
   providers: [ProfileService]
 })
-export class ProfileComponent implements OnDestroy {
+export class ProfileComponent extends UnSubscriptionHandler {
 
   _subscription: Subscription;
 
   reactiveProfileForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private profileService: ProfileService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private profileService: ProfileService) {
+    super();
     this.reactiveProfileForm = this.formBuilder.group({
       name: ['', Validators.required],
       lastNames: ['', Validators.required]
     });
 
     this._subscription = this.reactiveProfileForm.valueChanges
-    .pipe(map(formChanges => formChanges.name))
-    .subscribe(
-      nameList => {
-        console.log(nameList);
-      }
-    );
+      .pipe(
+        takeUntil(this.componentDestroyed),
+        map(formChanges => formChanges.name))
+      .subscribe(
+        nameList => {
+          console.log(nameList);
+        }
+      );
   }
 
   onSubmit(): void {
@@ -54,9 +60,5 @@ export class ProfileComponent implements OnDestroy {
 
       }, 10000);
     }, 10000);
-  }
-
-  ngOnDestroy() {
-    this._subscription.unsubscribe();
   }
 }
