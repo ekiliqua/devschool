@@ -1,3 +1,32 @@
-<p>
-  profile works!
-</p>
+<div class="container">
+  
+    <form [formGroup]="reactiveProfileForm" (ngSubmit)="onSubmit()">
+  
+      <h1>{{ 'REACTIVE-FORM-BUILDER' | translate }}</h1>
+      
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+  
+        <div *ngIf="reactiveProfileForm.controls.name.invalid && reactiveProfileForm.controls.name.touched" class="alert alert-danger">
+          {{ 'REQUIRED--param' | translate: {value: 'NAME' | translate} }}
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="name">Last Names</label>
+        <input type="text" class="form-control" formControlName="lastNames">
+  
+        <div *ngIf="reactiveProfileForm.controls.lastNames.invalid && reactiveProfileForm.controls.lastNames.touched" class="alert alert-danger">
+            {{ 'REQUIRED' | translate }}
+        </div>
+      </div>
+  
+      <p>
+        <button class="btn btn-primary" type="submit" [disabled]="!reactiveProfileForm.valid">Save</button>
+      </p>
+  
+    </form>
+    
+      
+    </div>

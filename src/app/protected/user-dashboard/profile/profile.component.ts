@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
+import { ProfileService } from '../services/profile.service';
 
 @Component({
   selector: 'devschool-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  providers: [ProfileService]
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
 
-  constructor() { }
+  reactiveProfileForm = this.formBuilder.group({
+    name: ['', Validators.required],
+    lastNames: ['', Validators.required]
+  });
 
-  ngOnInit() {
-  }
+  constructor(private formBuilder: FormBuilder, private profileService: ProfileService) { }
 
 }

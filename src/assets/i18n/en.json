@@ -15,5 +15,8 @@
     "LOGIN": "Template Form: Login",
     "REACTIVE-LOGIN": "Reactive Form: Login",
     "PROFILE": "Profile",
-    "LOGOUT": "Logout"
+    "LOGOUT": "Logout",
+    "REACTIVE-FORM-BUILDER": "Reactive FormBuilder: Profile",
+    "REQUIRED": "Mandatory field",
+    "REQUIRED--param": "Mandatory field: {{value}}"
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { ReactiveLoginForm } from '../../models';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';

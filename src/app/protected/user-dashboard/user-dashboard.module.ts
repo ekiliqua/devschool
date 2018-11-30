@@ -3,12 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { UserDashboardRoutingModule } from './user-dashboard-routing.module';
 import { ProfileComponent } from './profile/profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { ProfileService } from './services/profile.service';
 
 @NgModule({
   imports: [
     CommonModule,
-    UserDashboardRoutingModule
+    UserDashboardRoutingModule,
+    ReactiveFormsModule,
+    TranslateModule
   ],
-  declarations: [ProfileComponent]
+  declarations: [ProfileComponent],
+  providers: [
+    // ProfileService
+  ]
 })
 export class UserDashboardModule { }

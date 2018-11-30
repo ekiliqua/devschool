@@ -15,5 +15,8 @@
     "LOGIN": "Template Form: Iniciar sesión",
     "REACTIVE-LOGIN": "Reactive Form: Iniciar sesión",
     "PROFILE": "Perfil",
-    "LOGOUT": "Cerrar sesión"
+    "LOGOUT": "Cerrar sesión",
+    "REACTIVE-FORM-BUILDER": "Reactive FormBuilder: Perfil",
+    "REQUIRED": "Campo obligatorio",
+    "REQUIRED--param": "Campo obligatorio: {{value}}"
 }

@@ -1,7 +1,9 @@
 <div class="container">
   
   <form [formGroup]="reactiveLoginForm" (ngSubmit)="onSubmit()">
+
     <h1>{{ 'REACTIVE-LOGIN' | translate }}</h1>
+    
     <div class="form-group">
       <label for="user">User</label>
       <input type="text" class="form-control" formControlName="user">
@@ -23,11 +25,7 @@
     <p>
       <button class="btn btn-primary" type="submit" [disabled]="!reactiveLoginForm.valid">Login</button>
     </p>
-  
-    <!-- <br>
-    TODO: remove this: {{user.className}}
-    <br>
-    TODO: remove this: {{password.className}} -->
+
   </form>
   
     
