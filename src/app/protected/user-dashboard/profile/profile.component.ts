@@ -21,7 +21,7 @@ export class ProfileComponent implements OnDestroy {
       name: ['', Validators.required],
       lastNames: ['', Validators.required]
     });
-    
+
     this._subscription = this.reactiveProfileForm.valueChanges
     .pipe(map(formChanges => formChanges.name))
     .subscribe(
@@ -41,7 +41,7 @@ export class ProfileComponent implements OnDestroy {
       });
 
       setTimeout(() => {
-        
+
         // Error
         // this.reactiveProfileForm.setValue({
         //   lastNames: 'Aguado Arnold'

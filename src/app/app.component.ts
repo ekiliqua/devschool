@@ -21,8 +21,10 @@ export class AppComponent {
   private setDefaultLang() {
     if (['es', 'en'].includes(this.translateService.getBrowserLang())) {
       this.translateService.setDefaultLang(this.translateService.getBrowserLang());
+      this.translateService.currentLang = this.translateService.getBrowserLang();
     } else {
       this.translateService.setDefaultLang('en');
+      this.translateService.currentLang = 'en';
     }
   }
 
