@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ItemsService } from './items.service';
+import { ItemsService } from '../services/items.service';
 import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Item } from '../models';

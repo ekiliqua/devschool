@@ -7,11 +7,16 @@
   </div>
 
   <div class="row">
-    <div class="col-6" *ngFor="let item of items$ | async | filterAvailable: filterActive" [routerLink]="['/p/items/item', item.id]">
+    <div class="col-6" *ngFor="let item of items | filterAvailable: filterActive">
       <div class="list-group-item d-flex justify-content-between" [class.disabled]="!item.available">
         <span>{{ item.name }}</span>
+        <button [routerLink]="['/p/items/item', item.id]">View</button>
+        <button (click)="modifyItem(item)">Modify</button>
+        <button (click)="deleteItem(item.id)">Delete</button>
         <span>{{ item.price | currency : item.currency }}</span>
       </div>
     </div>
   </div>
+
+  <button (click)="addNewItem()">Add new Item</button>
 </div>

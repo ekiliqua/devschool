@@ -6,16 +6,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 
+const angularModules = [
+  FormsModule,
+  BrowserModule,
+];
+
+const appModules = [
+  CoreModule,
+  SharedModule,
+  AppRoutingModule
+];
+
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
-    FormsModule,
-    BrowserModule,
-    CoreModule,
-    SharedModule,
-    AppRoutingModule
+    ...angularModules,
+    ...appModules
   ],
   exports: [],
   bootstrap: [AppComponent]

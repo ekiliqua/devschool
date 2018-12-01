@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { CartItem } from '../../models';
@@ -15,7 +15,7 @@ interface AvailablePath {
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent extends UnSubscriptionHandler {
+export class NavbarComponent extends UnSubscriptionHandler implements OnInit {
 
   // Utils
 
@@ -31,6 +31,7 @@ export class NavbarComponent extends UnSubscriptionHandler {
 
   constructor(private cartService: CartService) {
     super();
+    console.log('constructor NavbarComponent');
     this.availablePaths = this.getAvailablePaths();
 
     this.cartService.getItems()
@@ -42,6 +43,12 @@ export class NavbarComponent extends UnSubscriptionHandler {
       )
       .subscribe(totals => this.cartLength = totals);
   }
+
+  
+  ngOnInit() {
+    console.log('onInit NavbarComponent');
+  }
+
 
   private getAvailablePaths(): AvailablePath[] {
     return [

@@ -15,17 +15,22 @@ interface MenuEntry {
   templateUrl: './main-menu.component.html',
   styleUrls: ['./main-menu.component.css']
 })
-export class MainMenuComponent extends UnSubscriptionHandler {
+export class MainMenuComponent extends UnSubscriptionHandler implements OnInit {
 
   menuEntries: MenuEntry[] = [];
 
   constructor(private loginService: LoginService, private router: Router) {
     super();
+    console.log('constructor MainMenuComponent');
     this.loginService.isLogged$()
       .pipe(takeUntil(this.componentDestroyed))
       .subscribe(isLogged =>
         this.menuEntries = isLogged ? this.getLoggedOptions() : this.getUnloggedOptions()
       );
+  }
+
+  ngOnInit() {
+    console.log('onInit MainMenuComponent');
   }
 
   private getUnloggedOptions(): MenuEntry[] {

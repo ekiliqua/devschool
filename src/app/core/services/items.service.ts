@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of, Observable } from 'rxjs';
+import { of, Observable, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Item } from '../models';
 
@@ -18,8 +18,26 @@ export class ItemsService {
   }
 
   getItem(id: number): Observable<Item> {
-    // const item = this.items.find(item => item.id === id);
-    // return of(item);
     return this.http.get<Item>(`${this.url}/items/${id}`);
+  }
+
+  saveItem(id: number): Observable<Item> {
+    const item = {
+      'name': `pala`,
+      'description': 'Es una pala estratosférica',
+      'price': 9.99,
+      'currency': 'USD',
+      'available': true,
+      'img': 'https://uploads-ssl.webflow.com/57e5747bd0ac813956df4e96/5aebae14c6d254621d81f826_placeholder.png'
+    };
+    return this.http.post<Item>(`${this.url}/items`, item);
+  }
+
+  deleteItem(id: number): Observable<Item> {
+    return this.http.delete<Item>(`${this.url}/items/${id}`);
+  }
+
+  modifyItem(item: Item): Observable<Item> {
+    return this.http.put<Item>(`${this.url}/items/${item.id}`, item);
   }
 }

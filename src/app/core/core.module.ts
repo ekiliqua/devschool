@@ -16,6 +16,45 @@ import { ReactiveLoginComponent } from './components/reactive-login/reactive-log
 import { TokenInterceptor } from './interceptors/token-interceptor';
 import { ErrorInterceptor } from './interceptors/error-interceptor';
 
+const angularModules = [
+  CommonModule,
+  RouterModule,
+  FormsModule,
+  ReactiveFormsModule,
+  HttpClientModule
+];
+
+const externalModules = [
+  BsDropdownModule.forRoot(),
+  TranslateModule.forRoot({
+    loader: {
+      provide: TranslateLoader,
+      useFactory: HttpLoaderFactory,
+      deps: [HttpClient]
+    }
+  }),
+];
+
+const declaredComponents = [
+  LanguageSelectorComponent,
+  NavbarComponent,
+  LoginComponent,
+  MainMenuComponent,
+  PageNotFoundComponent,
+  WelcomeComponent,
+  ReactiveLoginComponent
+];
+
+const exportedModules = [
+  TranslateModule,
+  FormsModule
+];
+
+const exportedComponents = [
+  NavbarComponent,
+  LoginComponent
+];
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -23,38 +62,19 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BsDropdownModule.forRoot(),
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
+    ...angularModules,
+    ...externalModules
   ],
   declarations: [
-    LanguageSelectorComponent,
-    NavbarComponent,
-    LoginComponent,
-    MainMenuComponent,
-    PageNotFoundComponent,
-    WelcomeComponent,
-    ReactiveLoginComponent
+    ...declaredComponents
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    // {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
   exports: [
-    TranslateModule,
-    NavbarComponent,
-    LoginComponent,
-    FormsModule
+    ...exportedModules,
+    ...exportedComponents,
   ]
 })
 export class CoreModule { }

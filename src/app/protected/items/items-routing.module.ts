@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListItemsComponent } from './componets/list-items/list-items.component';
 import { ItemComponent } from './componets/item/item.component';
-import { ItemResolver } from 'src/app/core/services/item-resolver.service';
+import { ItemResolver } from 'src/app/core/resolvers/item-resolver.service';
 
 const routes: Routes = [
   {

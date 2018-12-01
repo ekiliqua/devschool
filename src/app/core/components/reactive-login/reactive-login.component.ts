@@ -3,6 +3,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
+import { forbiddenNameValidator } from 'src/app/shared/directives/forbidden-name-validator';
 
 @Component({
   selector: 'devschool-reactive-login',
@@ -12,7 +13,9 @@ import { take } from 'rxjs/operators';
 export class ReactiveLoginComponent {
 
   reactiveLoginForm = new FormGroup({
-    user: new FormControl('', Validators.required),
+    user: new FormControl('', [
+      Validators.required,
+      forbiddenNameValidator(/bob/i)]),
     password: new FormControl('', Validators.required)
   });
 

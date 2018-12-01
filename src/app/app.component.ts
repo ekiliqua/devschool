@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -6,12 +6,16 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   constructor(private translateService: TranslateService) {
     const langs = this.getAvailableLangs();
     this.translateService.addLangs(langs);
     this.setDefaultLang();
+  }
+
+  ngOnInit() {
+    console.log('onInit AppComponent');
   }
 
   private getAvailableLangs(): string[] {
